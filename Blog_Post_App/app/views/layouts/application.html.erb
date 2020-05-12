@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlogPostApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'shared/navbar' %>
+      <div class='container'>
+        <% flash.each do |type, message| %>
+          <div class='bg-<%= type %> p-3 rounded mb-2 shadow-sm'>
+            <%= message %>
+          </div>
+        <% end %>
+    <%= yield %>
+  </body>
+</html>
