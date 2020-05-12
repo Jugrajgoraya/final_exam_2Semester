@@ -1,0 +1,31 @@
+<div class='shadow-sm p-3 mb-5 bg-white rounded overflow-wrap '>
+  <h1>
+    <span class='badge badge-pill badge-info'>
+      <%= @post.id %>
+    </span>
+    <%= @post.author %><br><br>
+  </h1>
+  <p class='shadow-none p-3 mb-5 bg-light rounded'><%= @post.body %></p>
+ <% if @post.user %>
+    <p class='text-muted'> by <span><%= @post.user.first_name %> <%= @post.user.last_name %></p> 
+  <% end %>
+<div>
+  <% if can? :crud, @post %>
+  <div>
+    <%= link_to(
+      "Edit",
+      edit_post_path(@post),
+      class: 'btn btn-info'
+    )
+    %>
+    <%= link_to(
+      "Delete",
+      post_path(@post),
+      method: :delete,
+      class: 'btn btn-danger',
+      data: { confirm: 'are you sure?' }
+    )
+    %>
+  </div>
+  <% end %>
+</div>

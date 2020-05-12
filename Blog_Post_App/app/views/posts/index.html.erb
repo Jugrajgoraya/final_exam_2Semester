@@ -1,0 +1,12 @@
+<h1 class ="post_index">Posts Index Page</h1>
+
+<div class='row row-cols-3'>
+    <% @posts.each do |post| %>
+      <%= link_to post do %>
+        <li class='list-group-item col-md-10 col'>
+          <p><%= post.id %> <span><%= post.author %></span>
+          </p>
+        </li>
+      <% end %>
+    <% end %>
+</div>
